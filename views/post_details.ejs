@@ -1,0 +1,33 @@
+<!-- views/post_details.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/post_detail_style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details</title>
+</head>
+<body>
+    <h1><%- post.title %></h1>
+    <div class="writer-container">
+        <p>작성자: <%- post.user_id %></p>
+    </div>
+    <div class="post-container">
+        <p><%- post.content %></p>
+    </div>
+    <div class="button-container">
+        <% if (post.file_name) { %>
+            <!-- 파일 다운로드 링크 -->
+            <a href="/board_main/download/<%- post.file_name %>"><button type="submit">파일 다운로드</button></a>
+        <% } %>
+        <% if (user && post.user_id === user.id || user.role == 'admin') { %>
+            <a href="/board_main/<%- post.post_id %>/edit"><button type="">수정하기</button></a>
+            <form action="/board_main/<%- post.post_id %>/?_method=DELETE" method="POST" style="display: inline;">
+                <button type="submit">삭제하기</button>
+            </form>
+        <% } %>
+        <a href="/board_main"><button type="">글 목록보기</button></a>
+    </div>
+</body>
+</html>

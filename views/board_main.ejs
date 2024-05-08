@@ -1,0 +1,47 @@
+<!-- views/board_main.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/board_style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board</title>
+</head>
+<body>
+    <h1>게시판</h1>
+    <div class="board-container">
+        
+    <!-- 검색 폼 -->
+    <form action="/board_main" method="GET">
+        <input type="text" name="keyword" placeholder="검색어를 입력하세요" value="<%= keyword %>">
+        <button type="submit">검색</button>
+    </form>
+
+    <!-- 검색 결과 -->
+    <% if (keyword && posts.length > 0) { %>
+        <p>검색 결과: '<%= keyword %>'를(을) 포함하는 게시물</p>
+    <% } %>
+
+    <!-- 게시글 목록 표시 -->
+    <ul>
+        <% posts.forEach(post => { %>
+            <div class="post-container">
+                <li>
+                    <a href="/board_main/<%= post.post_id %>"><%= post.title %></a>
+                </li>
+            </div>
+        <% }); %>
+    </ul>
+
+    <!-- 검색 결과가 없는 경우 -->
+    <% if (keyword && posts.length === 0) { %>
+        <p>'<%= keyword %>'를(을) 포함하는 게시물이 없습니다.</p>
+    <% } %>
+
+    <!-- 새로운 게시글 작성 버튼 -->
+    <a href="/board_main/new"><button type="button">새 글 작성</button></a>
+    <a href="/"><button type="button">메인화면</button></a>
+</body>
+</div>
+</html>

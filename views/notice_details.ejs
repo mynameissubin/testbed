@@ -1,0 +1,30 @@
+<!-- views/notice_details.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/post_detail_style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notice Details</title>
+</head>
+<body>
+    <h1><%- notice.title %></h1>
+    <div class="post-container">
+        <p><%- notice.content %></p>
+    </div>
+    <div class="button-container">
+        <% if (notice.file_name) { %>
+            <!-- 파일 다운로드 링크 -->
+            <a href="/notices/download/<%- notice.file_name %>"><button type="submit">파일 다운로드</button></a>
+        <% } %>
+        <% if (user.role == 'admin') { %>
+            <a href="/notices/<%- notice.notice_id %>/edit"><button type="">수정하기</button></a>
+            <form action="/notices/<%- notice.notice_id %>/?_method=DELETE" method="POST" style="display: inline;">
+                <button type="submit">삭제하기</button>
+            </form>
+        <% } %>
+        <a href="/notices"><button type="">글 목록보기</button></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+/* main_style.css */
+
+/* 페이지 전반적인 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffc2c2;
+    margin: 0; /* 바깥 여백 제거 */
+    padding: 0; /* 안쪽 여백 제거 */
+}
+
+h1 {
+    color: #000000;
+    text-align: center; /* 가운데 정렬 */
+    font-size: 24px; /* 글자 크기 조절 */
+    margin-bottom: 20px; /* 아래 여백 추가 */
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button[type="submit"],
+button[type=""] {
+    display: block; /* 블록 레벨 요소로 설정하여 가로 폭을 차지하게 함 */
+    margin: 0 auto; /* 가운데 정렬 */
+    margin-bottom: 10px; /* 아래 여백 추가 */
+    padding: 10px 20px;
+    background-color: #ff7575;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 게시글 목록 스타일 */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    color: #000000;
+    text-align: center; /* 가운데 정렬 */
+}

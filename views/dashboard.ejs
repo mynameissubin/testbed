@@ -1,0 +1,62 @@
+<!-- views/dashboard.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/dashboard_style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대시보드</title>
+</head>
+<body>
+    <h1>사용자 관리</h1>
+    <div class="dashboard-container">
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>role</th>
+            <th>delete</th>
+        </tr>
+        <% users.forEach(user => { %>
+            <% if (user.id !== currentUser.id) { %>
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.name %></td>
+                    <td><%= user.role %></td>
+                    <td>
+                        <button onclick="confirmDelete('<%= user.id %>')">삭제</button>
+                    </td>
+                </tr>
+            <% } %>
+        <% }); %>
+    </table>
+
+    <a href="/">메인 페이지</a>
+    </div>
+
+
+    <script>
+        function confirmDelete(userId) {
+            if (confirm('정말로 사용자를 삭제하시겠습니까?')) {
+                fetch('/dashboard/delete-user/' + userId, {
+                    method: 'POST',
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('사용자가 성공적으로 삭제되었습니다.');
+                        window.location.reload();
+                    } else {
+                        throw new Error('사용자 삭제에 실패했습니다.');
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert('사용자 삭제 중 오류가 발생했습니다.');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+/* dashboard_style.css */
+
+/* 페이지 전반적인 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffc2c2;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #000000;
+    text-align: center;
+}
+
+
+/* 대시보드 컨테이너 스타일 */
+.dashboard-container {
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* dashboard_style.css */
+
+/* 테이블 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #dddddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* 삭제 버튼 스타일 */
+button {
+    padding: 5px 10px;
+    background-color: #ff7575;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #ff0000;
+}
+
